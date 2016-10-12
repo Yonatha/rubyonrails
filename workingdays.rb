@@ -1,23 +1,22 @@
+# Author: Yonatha Almeida <yonathalmeida@gmail.com>
+
 require 'date'
 
-d1 = (Date.parse "12/10/2016") - 90
+d1 = (Date.parse "12/10/2016") - 90 # months
 d2 = (Date.parse "20/10/2016")
 
-p "Periodo #{d1.strftime("%d.%m.%Y")} a #{d2.strftime("%d.%m.%Y")}"
+p "Period #{d1.strftime("%d.%m.%Y")} to #{d2.strftime("%d.%m.%Y")}"
 
-dias_uteis = 0
-domingos = 0
-(d1..d2).each do |dias|
-
-  p dias.strftime("%A")
-
+workingdays = 0
+sunday = 0
+(d1..d2).each do |days|
   unless dias.strftime("%A") == 'Sunday'
-    dias_uteis += 1
+    workingdays += 1
   else
-    domingos += 1
+    sunday += 1
  end
 end
 
-p "#{dias_uteis} dias uteis"
-p "#{domingos} domingos"
+p "#{workingdays} working days"
+p "#{sunday} Sunday"
 
